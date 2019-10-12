@@ -2,6 +2,7 @@ package com.newera.notetaker;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -11,8 +12,8 @@ import android.widget.Toast;
 public class MainActivity extends AppCompatActivity {
     private EditText editUserName, editPassword;
     private Button btnLogin;
-    String username = "L";
-    String password = "B";
+    String username = "Larry1149";
+    String password = "123456";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,6 +21,8 @@ public class MainActivity extends AppCompatActivity {
         findview();
         setLister();
     }
+
+
 
     private void findview(){
         editUserName = findViewById(R.id.edit_Username);
@@ -36,6 +39,9 @@ public class MainActivity extends AppCompatActivity {
 
                 if(inputUsername.equals(username) && inputPassword.equals(password)){
                     Toast.makeText(MainActivity.this, "Login Successful", Toast.LENGTH_SHORT).show();
+                        Intent i = new Intent(MainActivity.this,HomeActivity.class);
+                        startActivity(i);
+                        finish();
                 }else{
                     Toast.makeText(MainActivity.this, "Login Fail", Toast.LENGTH_SHORT).show();
                 }
